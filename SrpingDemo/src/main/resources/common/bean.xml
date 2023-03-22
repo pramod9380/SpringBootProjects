@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"> <!-- bean definitions here -->
+
+    <bean id="student1" class="com.perfios.srpingdemo.inversionofcontrol.Student" init-method="myInit" destroy-method="myDestroy">
+        <property name="studentName" value="Pramod"></property>
+        <property name="studentUsn" value="1MS18CS093"></property>
+        <property name="studentLocation" value="Bangalore"></property>
+    </bean>
+
+    <bean id="student2" class="com.perfios.srpingdemo.inversionofcontrol.Student">
+        <property name="studentName" value="Pavan"></property>
+        <property name="studentUsn" value="1MS18CS088"></property>
+        <property name="studentLocation" value="Bangalore"></property>
+    </bean>
+
+<!--    DependencyInjection through constructor-->
+    <bean id="emp1" class="com.perfios.srpingdemo.dependencyinjuction.Employee">
+        <constructor-arg ref="address"></constructor-arg>
+        <property name="employeeId" value="1"></property>
+        <property name="employeeName" value="Pramod"></property>
+    </bean>
+
+<!--    DependencyInjection through setter method-->
+    <bean id="emp2" class="com.perfios.srpingdemo.dependencyinjuction.Employee">
+        <property name="address" ref="address"></property>
+        <property name="employeeId" value="1"></property>
+        <property name="employeeName" value="Pramod"></property>
+    </bean>
+
+
+    <bean id="address" class="com.perfios.srpingdemo.dependencyinjuction.Address">
+        <property name="area" value="Near Infant Medicals"></property>
+        <property name="city" value="Bangalore"></property>
+        <property name="state" value="Karnataka"></property>
+        <property name="zipCode" value="560029"></property>
+    </bean>
+
+</beans>

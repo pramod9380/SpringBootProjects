@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"> <!-- bean definitions here -->
+
+    <bean id="address" class="com.perfios.bootcamp.springcore3.bank_application.Address">
+        <property name="area" value="Near Infant Medicals"></property>
+        <property name="city" value="Bangalore"></property>
+        <property name="state" value="Karnataka"></property>
+        <property name="zipCode" value="560029"></property>
+    </bean>
+
+    <bean id="customer1" class="com.perfios.bootcamp.springcore3.bank_application.Customer">
+        <property name="id" value="1"></property>
+        <property name="firstName" value="Pramod"></property>
+        <property name="lastName" value="Kulkarni"></property>
+        <property name="age" value="22"></property>
+        <property name="gender" value="male"></property>
+        <property name="dob" value="25-08-2000"></property>
+        <property name="emailId" value="pramod.k@perfios.com"></property>
+        <property name="mobileNumber" value="6362063788"></property>
+        <property name="address" ref="address"></property>
+    </bean>
+
+    <bean id="customer2" class="com.perfios.bootcamp.springcore3.bank_application.Customer">
+        <constructor-arg name="id" value="2"></constructor-arg>
+        <constructor-arg name="firstName" value="Pavan"></constructor-arg>
+        <constructor-arg name="lastName" value="D G"></constructor-arg>
+        <constructor-arg name="age" value="22"></constructor-arg>
+        <constructor-arg name="gender" value="male"></constructor-arg>
+        <constructor-arg name="emailId" value="pavan.dg@perfios.com"></constructor-arg>
+        <constructor-arg name="dob" value="25-08-2000"></constructor-arg>
+        <constructor-arg name="mobileNumber" value="6362063788"></constructor-arg>
+        <constructor-arg name="address" ref="address"></constructor-arg>
+    </bean>
+
+</beans>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"> <!-- bean definitions here -->
+
+        <bean id="college1" class="com.perfios.srpingdemo.collection.College">
+            <property name="name" value="MSRIT"></property>
+            <property name="location" value="Mattikere"></property>
+        </bean>
+
+        <bean id="college2" class="com.perfios.srpingdemo.collection.College">
+            <property name="name" value="RVCE"></property>
+            <property name="location" value="Pattangere"></property>
+        </bean>
+
+        <bean id="student1" class="com.perfios.srpingdemo.collection.Student">
+            <property name="id" value="1"></property>
+            <property name="name" value="Pramod"></property>
+            <property name="course">
+                <list>
+                    <value>.net</value>
+                    <value>java</value>
+                    <value>python</value>
+                    <value>springboot</value>
+                    <value>react.js</value>
+                </list>
+            </property>
+            <property name="colleges">
+                <list>
+                    <ref bean="college1"/>
+                    <ref bean="college2"/>
+                </list>
+
+            </property>
+        </bean>
+
+        <bean id="student2" class="com.perfios.srpingdemo.collection.Student">
+            <constructor-arg name="id" value="3"></constructor-arg>
+            <constructor-arg name="name" value="Aditya"></constructor-arg>
+            <constructor-arg name="course">
+                <list>
+                    <value>C++</value>
+                    <value>Ruby</value>
+                    <value>Go Lang</value>
+                </list>
+            </constructor-arg>
+            <constructor-arg name="colleges">
+                <list>
+                    <ref bean="college1"></ref>
+                    <ref bean="college2"></ref>
+                </list>
+            </constructor-arg>
+        </bean>
+
+
+
+</beans>
